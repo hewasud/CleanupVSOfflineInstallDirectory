@@ -4,9 +4,9 @@ using System;
 namespace CleanVSOfflineInstallDirectoryTests
 {
     [TestClass]
-    public class VersionInfoTest
+    public class VersionTests
     {
-        [TestMethod]
+        //[TestMethod]
         public void CreateVersionInfoWithVersionAsStringArguement()
         {
             Assert.IsNotNull(new Version(@"1.2.3.4"));
@@ -14,7 +14,7 @@ namespace CleanVSOfflineInstallDirectoryTests
             Assert.IsNotNull(new Version(@"1.2"));
         }
 
-        [TestMethod]
+        //[TestMethod]
         public void CreateVersionWithInvalidStringShouldFail()
         {
             Assert.ThrowsException<ArgumentException>(() => new Version(@"InvalidVersion"));

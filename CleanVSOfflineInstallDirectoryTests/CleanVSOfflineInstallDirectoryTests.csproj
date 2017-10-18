@@ -16,4 +16,10 @@
     <ProjectReference Include="..\CleanVSOfflineInstallDirectory\CleanVSOfflineInstallDirectory.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="dirs.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

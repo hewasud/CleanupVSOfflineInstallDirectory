@@ -10,35 +10,43 @@ namespace CleanVSOfflineInstallDirectory
 
     public class DirectoryNameSturcture
     {
-        private static readonly string regExStr =
+        // Regular Expressions
+        private static readonly string FullPathMatchStr =
             @"(..*\\)([^,]+),version=([^,]+)(,chip=[^,]+)?(,language=[^,]+)?";
-        private static readonly Regex regex = new Regex(regExStr);
+        private static readonly string ChipMatchStr = @",chip=(.+)";
+        private static readonly string LanguageMatchStr = @",language=(.+)";
+
+        private static readonly Regex FullPathMatchRegEx = new Regex(FullPathMatchStr);
+        private static readonly Regex ChipMatchRegEx = new Regex(ChipMatchStr);
+        private static readonly Regex LanguageMatchRegEx = new Regex(LanguageMatchStr);
 
         public static bool IsValidPackageDir(string name)
         {
-            return regex.Match(name).Success;
+            var match = FullPathMatchRegEx.Match(name);
+            return match.Success;
         }
 
         public DirectoryNameSturcture(string dirName)
         {
-            var match = regex.Match(dirName);
+            var match = FullPathMatchRegEx.Match(dirName);
 
             if (! match.Success) throw new ArgumentException(match.ToString());
 
-            var chipRegEx = new Regex(@",chip=(.+)");
-            var languageRegEx = new Regex(@",language=(.+)");
-
-            var chip = chipRegEx.Match(match.Groups[4].Value).Groups[1].Value;
-            var lang = languageRegEx.Match(match.Groups[5].Value).Groups[1].Value;
+            var chip = ChipMatchRegEx.Match(match.Groups[4].Value).Groups[1].Value;
+            var lang = LanguageMatchRegEx.Match(match.Groups[5].Value).Groups[1].Value;
 
             Version = new Version(match.Groups[3].Value);
             Chip = (chip.Equals("")) ? null : chip;
             Language = (lang.Equals("")) ? null : lang;
+            FullPath = match.Groups[0].Value;
+            ParentPath = match.Groups[1].Value;
         }
 
-        public string PackageName { get; set; }
-        public Version Version { get; set; }
-        public string Chip { get; set; }
-        public string Language { get; set; }
+        public string PackageName { get; }
+        public Version Version { get; }
+        public string Chip { get; }
+        public string Language { get; }
+        public string FullPath { get; }
+        public string ParentPath { get; }
     }
 }
