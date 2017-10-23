@@ -40,6 +40,7 @@ namespace CleanVSOfflineInstallDirectory
             Language = (lang.Equals("")) ? null : lang;
             FullPath = match.Groups[0].Value;
             ParentPath = match.Groups[1].Value;
+            PackageName = match.Groups[2].Value;
         }
 
         public string PackageName { get; }
