@@ -2,7 +2,7 @@ c:\Anaconda2.Exe.x64,version=4.3.0.2,chip=x64
 c:\Anaconda2.Exe.x64,version=4.4.0,chip=x64
 c:\Anaconda2.Exe.x86,version=4.3.0.2
 c:\Anaconda2.Exe.x86,version=4.4.0
-c:\Anaconda3.Exe.x64,v persion=4.3.0.2,chip=x64
+c:\Anaconda3.Exe.x64,version=4.3.0.2,chip=x64
 c:\Anaconda3.Exe.x64,version=4.4.0,chip=x64
 c:\Anaconda3.Exe.x86,version=4.3.0.2
 c:\Anaconda3.Exe.x86,version=4.4.0
