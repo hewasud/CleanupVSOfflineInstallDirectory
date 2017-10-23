@@ -57,19 +57,19 @@ namespace CleanVSOfflineInstallDirectoryTests
 
             Console.WriteLine($"Count: {dnsList2.Count()}");
 
-            dnsList2 = dnsList
+            var keepList = dnsList
                 .Select(g => g.OrderByDescending(o => o.Version).Take(1))
                 .SelectMany(e => e);
 
-            Console.WriteLine($"Count: {dnsList2.Count()}");
+            Console.WriteLine($"Keep Count: {keepList.Count()}");
 
-            dnsList2 = dnsList
+            var delList = dnsList
                 .Select(g => g.OrderByDescending(o => o.Version).Skip(1))
                 .SelectMany(e => e);
 
-            Console.WriteLine($"Count: {dnsList2.Count()}");
+            Console.WriteLine($"Delete Count: {delList.Count()}");
 
-            foreach (var d in dnsList2)
+            foreach (var d in delList)
             {
                 Console.WriteLine(d.FullPath);
             }
