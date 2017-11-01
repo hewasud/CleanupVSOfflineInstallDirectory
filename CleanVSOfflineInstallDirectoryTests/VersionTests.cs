@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace CleanVSOfflineInstallDirectoryTests
+namespace VSOfflineInstallerPackageDirectoryStructureTests
 {
     [TestClass]
     public class VersionTests

@@ -6,4 +6,8 @@
     <StartupObject>CleanVSOfflineInstallDirectory.Program</StartupObject>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\VSOfflineInstallerPackageDirectorySturcture\VSOfflineInstallerPackageDirectorySturcture.csproj" />
+  </ItemGroup>
+
 </Project>

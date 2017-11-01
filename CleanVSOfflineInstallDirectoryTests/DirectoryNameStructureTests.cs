@@ -4,8 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using VSOfflineInstallerPackageDirectoryStructure;
 
-namespace CleanVSOfflineInstallDirectoryTests
+namespace VSOfflineInstallerPackageDirectoryStructureTests
 {
     [TestClass]
     public class DirectoryNameStructureTests

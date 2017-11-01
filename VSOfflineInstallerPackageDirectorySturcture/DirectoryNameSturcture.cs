@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace CleanVSOfflineInstallDirectory
+namespace VSOfflineInstallerPackageDirectoryStructure
 {
     internal class DirProperty
     {
