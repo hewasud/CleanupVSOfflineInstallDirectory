@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
+using System.Linq;
 
 namespace CleanVSOfflineInstallDirectory
 {
@@ -8,19 +7,24 @@ namespace CleanVSOfflineInstallDirectory
     {
         static void Main()
         {
-            const string VSOfflineInstallPath = @"C:\Users\hewasud\Downloads\vs2017";
-            IList<string> directories = Directory.GetDirectories(VSOfflineInstallPath);
-            var DNStruct = new List<DirectoryNameSturcture>();
-            foreach (var d in directories)
-            {
-                if(DirectoryNameSturcture.IsValidPackageDir(d))
-                {
-                    DNStruct.Add(new DirectoryNameSturcture(d));
-                } else {
-                    Console.WriteLine(">> NM >> "+d);
-                }
+            const string ArchiveDirectory = @"D:\archive";
+            const string VSOfflineInstallPath = @"C:\vs2017";
+
+            var dirNames = Directory.GetDirectories(VSOfflineInstallPath)
+                .Where(s => DirectoryNameSturcture.IsValidPackageDir(s));
+
+            var DNStruct = new PackageList(dirNames);
+
+            if (! Directory.Exists(ArchiveDirectory)) {
+                Directory.CreateDirectory(ArchiveDirectory);
             }
-           Console.ReadLine();
+
+            foreach(var p in DNStruct.OldVersions)
+            {
+                System.Console.WriteLine($"move \"{p.FullPath}\" \"{ArchiveDirectory}\"\n");
+                //Directory.Delete(p.FullPath, true);
+                //Directory.Move(p.FullPath, ArchiveDirectory);
+            }
         }
     }
 }
