@@ -24,6 +24,7 @@ namespace CleanVSOfflineInstallDirectory
                 System.Console.WriteLine($"move \"{p.FullPath}\" \"{ArchiveDirectory}\"\n");
                 //Directory.Delete(p.FullPath, true);
                 //Directory.Move(p.FullPath, ArchiveDirectory);
+                // test change
             }
         }
     }
