@@ -8,7 +8,15 @@ namespace CleanVSOfflineInstallDirectory
     {
         static void Main(string[] argv)
         {
-            var VSOfflineInstallPath = argv[1];
+            if (argv.Length != 1)
+            {
+                System.Console.WriteLine(
+                    "\nUsage: dotnet CleanupOfflineInstallDirectory c:\\offlineinstalldir\n\n");
+                return;
+            }
+            System.Console.WriteLine($"\nCleanup: {argv[0]}\n\n");
+
+            var VSOfflineInstallPath = argv[0];
 
             var dirNames = Directory.GetDirectories(VSOfflineInstallPath)
                 .Where(s => DirectoryNameSturcture.IsValidPackageDir(s));
