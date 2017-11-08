@@ -34,7 +34,7 @@ if (! (Test-Path $oliDir)) {
 # Offline installer options can be found here:
 # https://docs.microsoft.com/en-us/visualstudio/install/create-a-network-installation-of-visual-studio
 # https://docs.microsoft.com/en-us/visualstudio/install/use-command-line-parameters-to-install-visual-studio
-$composedCmd = "cmd /c " + $installerPath + " --passive --quiet --layout '" + $oliDir + "' --wait " + " --lang " + $includeLang
+$composedCmd = "cmd /c " + $installerPath + " --layout '" + $oliDir + "' " + " --lang " + $includeLang
 Write-Output $composedCmd
 Invoke-Expression $composedCmd
 
